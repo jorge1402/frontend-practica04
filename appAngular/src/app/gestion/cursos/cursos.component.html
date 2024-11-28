@@ -1,0 +1,63 @@
+<button class="btn btn-primary" *ngIf="!showForm" (click)="nuevoCurso()">
+  Nuevo Curso
+</button>
+<form action="" *ngIf="showForm">
+  <div class="row">
+    <div class="col-md-12">
+      <h5>Formulario curso</h5>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="curso.nombre"/>
+      </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="horas">Horas</label>
+            <input type="number" class="form-control" id="horas" name="horas"  [(ngModel)]="curso.horas"/>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="creditos">Créditos</label>
+            <input type="number" class="form-control" id="creditos" name="creditos"  [(ngModel)]="curso.creditos"/>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="creditos">Categoría</label>
+            <select name="categoria" id="categoria" class="form-control" [(ngModel)]="curso.categoria">
+                <option value="software">Software</option>
+                <option value="gestion">Gestión</option>
+                <option value="otros">Otros</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-12 text-center">
+        <button class="btn btn-success mr-2" (click)="agregarCurso()" style="margin-right: 10px;">Agregar</button>
+        <button class="btn btn-danger ml-2" (click)="cancelar()">Cancelar</button>
+    </div>
+  </div>
+</form>
+
+<table class="table table-striped" *ngIf="!showForm">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Horas</th>
+      <th>Créditos</th>
+      <th>Categoría</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let curso of cursos">
+      <td>{{ curso.id }}</td>
+      <td>{{ curso.nombre }}</td>
+      <td>{{ curso.horas }}</td>
+      <td>{{ curso.creditos }}</td>
+      <td>{{ curso.categoria }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,65 @@
+<form action="">
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-12">
+        <h5>Matricula alumno</h5>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="creditos">Alumno</label>
+          <select
+            class="form-select"
+            multiple
+            aria-label="multiple select example"
+            name="alumno"
+            [(ngModel)]="formMatricula.alumno"
+          >
+            <option *ngFor="let alumno of alumnos" value={{alumno.id}}>
+              {{ alumno.id }} {{ alumno.nombres }} {{ alumno.apellidos }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="creditos">Curso</label>
+          <select
+            class="form-select"
+            multiple
+            aria-label="multiple select example"
+            name="curso"
+            [(ngModel)]="formMatricula.curso"
+          >
+            <option *ngFor="let curso of cursos" value={{curso.id}}>
+              {{ curso.id }} {{ curso.nombre }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-12 mt-3 text-center">
+        <button class="btn btn-success" (click)="matricular()">
+          Matricular
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<table class="table table-striped mt-3">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Alumno</th>
+      <th>Curso</th>
+      <th>Fecha incripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let matricula of matriculas">
+      <td>{{ matricula.id }}</td>
+      <td>{{ matricula.nombres }}</td>
+      <td>{{ matricula.curso }}</td>
+      <td>{{ matricula.fecha | date:'dd/MM/yyy HH:mm:ss' }}</td>
+    </tr>
+  </tbody>
+</table>

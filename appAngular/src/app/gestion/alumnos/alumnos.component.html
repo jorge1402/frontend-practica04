@@ -1,0 +1,117 @@
+<button class="btn btn-primary" *ngIf="!showForm" (click)="nuevoAlumno()">
+  Nuevo Alumno
+</button>
+<form action="" *ngIf="showForm">
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-12">
+        <h5>Formulario Alumno</h5>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="nombre">Nombres</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nombres"
+            name="nombres"
+            [(ngModel)]="alumno.nombres"
+          />
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="nombre">Apellidos</label>
+          <input
+            type="text"
+            class="form-control"
+            id="apellidos"
+            name="apellidos"
+            [(ngModel)]="alumno.apellidos"
+          />
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="nombre">Fecha de inicio</label>
+          <input
+            type="date"
+            class="form-control"
+            id="fechaNacimiento"
+            name="fechaNacimiento"
+            [(ngModel)]="alumno.fechaNacimiento"
+          />
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="nombre">Dirección</label>
+          <input
+            type="text"
+            class="form-control"
+            id="direccion"
+            name="direccion"
+            [(ngModel)]="alumno.direccion"
+          />
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="nombre">Correo</label>
+          <input
+            type="email"
+            class="form-control"
+            id="correo"
+            name="correo"
+            [(ngModel)]="alumno.correo"
+          />
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="nombre">Teléfono</label>
+          <input
+            type="text"
+            class="form-control"
+            id="telefono"
+            name="telefono"
+            [(ngModel)]="alumno.telefono"
+          />
+        </div>
+      </div>
+      <div class="col-md-12 text-center mt-3">
+        <button class="btn btn-success" (click)="agregarAlumno()" style="margin-right: 10px;">
+          Agregar
+        </button>
+        <button class="btn btn-danger ml-2" (click)="cancelar()">
+          Cancelar
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<table class="table table-striped" *ngIf="!showForm">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nombres</th>
+      <th>Apellidos</th>
+      <th>Fecha de nacimiento</th>
+      <th>Dirección</th>
+      <th>Correo</th>
+      <th>Teléfono</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let alumno of alumnos">
+      <td>{{ alumno.id }}</td>
+      <td>{{ alumno.nombres }}</td>
+      <td>{{ alumno.apellidos }}</td>
+      <td>{{ alumno.fechaNacimiento }}</td>
+      <td>{{ alumno.direccion }}</td>
+      <td>{{ alumno.correo }}</td>
+      <td>{{ alumno.telefono }}</td>
+    </tr>
+  </tbody>
+</table>
